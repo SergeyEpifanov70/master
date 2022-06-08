@@ -1,0 +1,15 @@
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Task-3_3_2\obj\Debug\net6.0\Task-3_3_2.csproj.AssemblyReference.cache
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Task-3_3_2\obj\Debug\net6.0\Task-3_3_2.GeneratedMSBuildEditorConfig.editorconfig
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Task-3_3_2\obj\Debug\net6.0\Task-3_3_2.AssemblyInfoInputs.cache
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Task-3_3_2\obj\Debug\net6.0\Task-3_3_2.AssemblyInfo.cs
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Task-3_3_2\obj\Debug\net6.0\Task-3_3_2.csproj.CoreCompileInputs.cache
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Task-3_3_2\bin\Debug\net6.0\Task-3_3_2.exe
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Task-3_3_2\bin\Debug\net6.0\Task-3_3_2.deps.json
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Task-3_3_2\bin\Debug\net6.0\Task-3_3_2.runtimeconfig.json
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Task-3_3_2\bin\Debug\net6.0\Task-3_3_2.dll
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Task-3_3_2\bin\Debug\net6.0\Task-3_3_2.pdb
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Task-3_3_2\obj\Debug\net6.0\Task-3_3_2.dll
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Task-3_3_2\obj\Debug\net6.0\refint\Task-3_3_2.dll
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Task-3_3_2\obj\Debug\net6.0\Task-3_3_2.pdb
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Task-3_3_2\obj\Debug\net6.0\Task-3_3_2.genruntimeconfig.cache
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Task-3_3_2\obj\Debug\net6.0\ref\Task-3_3_2.dll

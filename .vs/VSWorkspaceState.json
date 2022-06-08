@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FirstApp",
+    "\\FirstApp1"
   ],
-  "SelectedNode": "\\C:\\YandexDisk\\08 - Csharp\\01 - Хранилище локальных репозиториев\\01 - SkillFactory",
+  "SelectedNode": "\\FirstApp1\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
