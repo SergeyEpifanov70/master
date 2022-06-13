@@ -51,16 +51,48 @@ class MainClass
 		//Console.WriteLine("Your favorite day is {0}", day);
 
 
-		Console.Write("Enter your name: ");
-		var name = Console.ReadLine();
-		Console.Write("Enter your age: ");
-		var age = Console.ReadLine();
-		Console.WriteLine("Your name is {0} and your age is {1}", name, age);
+		//Console.Write("Enter your name: ");
+		//var name = Console.ReadLine();
+		//Console.Write("Enter your age: ");
+		//var age = Console.ReadLine();
+		//Console.WriteLine("Your name is {0} and your age is {1}", name, age);
 
-		Console.Write("Enter your birthdate: ");
-		var birthdate = Console.ReadLine();
-		Console.Write("Your birthdate is {0}", birthdate);
+		//Console.Write("Enter your birthdate: ");
+		//var birthdate = Console.ReadLine();
+		//Console.Write("Your birthdate is {0}", birthdate);
 
+
+		//Задача 4.1.10
+		//var inv = true;
+		//var result = !inv;
+		//Console.WriteLine(result);
+
+
+		//Задача 4.1.17
+		var color = Console.ReadLine();
+
+		if (color == "red")
+		{
+			Console.BackgroundColor = ConsoleColor.Red;
+			Console.ForegroundColor = ConsoleColor.Black;
+
+			Console.WriteLine("Your color is red!");
+		}
+
+		else if (color == "green")
+		{
+			Console.BackgroundColor = ConsoleColor.Green;
+			Console.ForegroundColor = ConsoleColor.Black;
+
+			Console.WriteLine("Your color is green!");
+		}
+		else
+		{
+			Console.BackgroundColor = ConsoleColor.Cyan;
+			Console.ForegroundColor = ConsoleColor.Black;
+
+			Console.WriteLine("Your color is cyan!");
+		}
 
 	}
 }
