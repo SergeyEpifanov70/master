@@ -9,10 +9,17 @@ class MainClass
     #region
     static int ControlAge(int age1)
     {
-        if ( age1<1 )
+        bool flag = true;
+        do
         {
-            Console.WriteLine("Введите корректное значение вашего возраста, надо указать количество полных лет");
+            if (age1 < 1)
+            {
+                Console.WriteLine("Введите корректное значение вашего возраста, надо указать количество полных лет");
+                flag = false;
+            }
         }
+        while (true);
+
         return age1;
     }
 
@@ -32,19 +39,62 @@ class MainClass
     }
 
 
+    static int ControlQuantityAnimals(int quantityanimal1)
+    {
+        int quantityanimal2 = quantityanimal1;
+        bool flag = true;
+        do
+        {
+            if (quantityanimal2 == 0)
+            {
+                Console.WriteLine("Вы не любите животных, да/нет?");
+                var temp1 = Console.ReadLine();
+                if (temp1 == "Да" | temp1 == "да")
+                {
+                    quantityanimal2 = 0;
+                }
+                else
+                {
+                    if (quantityanimal2 < 0)
+                    {
+                        Console.WriteLine("Пожалуйста, введите корректное число");
+                        quantityanimal2 = int.Parse(Console.ReadLine());
+                        flag = false;
+                    }
+                }
+            }
+        }
+        while (flag);
+        return quantityanimal2;
+    }
 
     static int ControlQuantityFlowers(int quantityflowers1)
     {
-        if (quantityflowers1 == 0)
+        int quantityflowers2 = quantityflowers1;
+        bool flag = true;
+        do
         {
-            Console.WriteLine("Вы не любите цветы, да/нет?");
-            var temp1 = Console.ReadLine();
-            if (temp1 == "Да" | temp1 == "да")
+            if (quantityflowers2 == 0)
             {
-                return 0;
+                Console.WriteLine("Вы не любите цветы, да/нет?");
+                var temp1 = Console.ReadLine();
+                if (temp1 == "Да" | temp1 == "да")
+                {
+                    quantityflowers2 = 0;
+                }
+                else
+                {
+                    if (quantityflowers2 < 0)
+                    {
+                        Console.WriteLine("Пожалуйста, введите корректное число");
+                        quantityflowers2 = int.Parse(Console.ReadLine());
+                        flag = false;
+                    }
+                }
             }
-        }
-        return quantityflowers1;
+        } 
+        while (flag);
+        return quantityflowers2;
     }
 
 
@@ -70,9 +120,9 @@ class MainClass
         string[] FavoritFlowers = new string[i];
         for(int j = 0; j < FavoritFlowers.Length; j++)
         {
-            Console.WriteLine("Введите название {0} цветка", i);
+            Console.WriteLine("Введите название {0} цветка", j);
             string flower = Console.ReadLine();
-            FavoritFlowers[i] = flower;
+            FavoritFlowers[j] = flower;
         }
         return FavoritFlowers;
     }
@@ -520,7 +570,7 @@ class MainClass
         #region
         static void Opros()
         {
-            (string name, string lastname, int age, bool hasanimal, int quantityflowers) anketa;
+            (string name, string lastname, int age, int quantityanimals, int quantityflowers) anketa;
 
             Console.WriteLine("Введите своё имя");
             anketa.name = Console.ReadLine();
@@ -532,21 +582,19 @@ class MainClass
             anketa.age = ControlAge(int.Parse(Console.ReadLine()));
 
             Console.WriteLine("Есть ли у вас домашнее животное, Да/Нет?");
-            bool item1 = ControlHasAnimal(Console.ReadLine());
-            if (item1 = true)
+            int item1 = ControlQuantityAnimals(int.Parse(Console.ReadLine()));
+            anketa.quantityanimals = item1;
+            if (item1 > 0)
             {
-                anketa.hasanimal = item1;
-                Console.WriteLine("Сколько у вас домашних живатных?");
-                int item2 = int.Parse(Console.ReadLine());
-                ArrayFavoritAnimals(item2);
+                ArrayFavoritAnimals(item1);
             }
 
             Console.WriteLine("Сколько у вас любимых цветов, их количество?");
-            int item3 = ControlQuantityFlowers(int.Parse(Console.ReadLine()));
-            if ( item3 > 0 )
+            int item2 = ControlQuantityFlowers(int.Parse(Console.ReadLine()));
+            anketa.quantityflowers = item2;
+            if ( item2 > 0 )
             {
-                anketa.quantityflowers = item3;
-                ArrayFavoritFlowers(item3);
+                ArrayFavoritFlowers(item2);
             } 
 
 
