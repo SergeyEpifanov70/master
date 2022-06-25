@@ -3,9 +3,160 @@
 class MainClass
 {
 
-    //Задача 5.5.3
+
+
+    //Итоговое задание 5.6
+    #region
+    static int ControlAge(int age1)
+    {
+        if ( age1<1 )
+        {
+            Console.WriteLine("Введите корректное значение вашего возраста, надо указать количество полных лет");
+        }
+        return age1;
+    }
+
+
+
+    static bool ControlHasAnimal(string hasanimal1)
+    {
+        if (hasanimal1 == "Да" | hasanimal1 == "да")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+
+
+    static int ControlQuantityFlowers(int quantityflowers1)
+    {
+        if (quantityflowers1 == 0)
+        {
+            Console.WriteLine("Вы не любите цветы, да/нет?");
+            var temp1 = Console.ReadLine();
+            if (temp1 == "Да" | temp1 == "да")
+            {
+                return 0;
+            }
+        }
+        return quantityflowers1;
+    }
+
+
+
+
+    static string[] ArrayFavoritAnimals(int i)
+    {
+        string[] FavoritAnimals = new string[i];
+        for(i = 0; i < FavoritAnimals.Length; i++)
+        {
+            Console.WriteLine("Введите кличку {0} питомца", i);
+            string nickname = Console.ReadLine();
+            FavoritAnimals[i] = nickname;
+        }
+        return FavoritAnimals;
+    }
+ 
+    
+
+
+    static string[] ArrayFavoritFlowers(int i)
+    {
+        string[] FavoritFlowers = new string[i];
+        for(int j = 0; j < FavoritFlowers.Length; j++)
+        {
+            Console.WriteLine("Введите название {0} цветка", i);
+            string flower = Console.ReadLine();
+            FavoritFlowers[i] = flower;
+        }
+        return FavoritFlowers;
+    }
+
+
+
+    #endregion
+
+
+
+
+
+    // -----------------------
+
+    //Архив
     #region
 
+
+
+
+    //Задача 5.5.8
+    #region
+    /*
+    private static decimal PowerUp(int N, byte pow)
+    {
+        decimal temp = 1;
+        if (pow == 0)
+        {
+            return 1;
+        }
+        else
+        {
+            if (pow == 1)
+            {
+                return N;
+            }
+            else
+            {
+                
+                //for (var i = 1; i < pow + 1; i++)
+                //{
+                    //temp = temp * N;
+                //}
+                
+                return N*PowerUp(N, --pow);
+
+            }
+
+        }
+
+        return temp;
+
+    }
+    */
+    #endregion
+
+
+
+
+
+    //Задача 5.5.5
+    #region
+    /*
+    static decimal Factorial(int x)
+    {
+
+        if (x == 0)
+        {
+            return 1;
+        }
+        else
+        {
+            return x * Factorial(x - 1);
+        }
+    }
+    */
+    #endregion
+
+
+
+
+    //Задача 5.5.3
+    #region
+    /*
     static void Eho(string phrase, ref int deep)
     {
 
@@ -13,13 +164,14 @@ class MainClass
         
         if (modif.Length > 2)
         {
-            
             modif = modif.Remove(0, 2);
-            Console.WriteLine(modif);
-            
+
         }
-        
-        if(deep > 1)
+
+        Console.BackgroundColor = (ConsoleColor)deep;
+        Console.WriteLine("..." + modif);
+
+        if (deep > 1)
         {
             deep--;
             Eho(modif, ref deep);
@@ -27,16 +179,11 @@ class MainClass
         
         
     }
-
+    */
 
     #endregion
 
 
-
-    // ------------------------------------------------------------------
-
-    //Архив
-    #region
 
 
 
@@ -362,13 +509,107 @@ class MainClass
     #endregion
 
 
-
+    //------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------
     public static void Main(string[] args)
 	{
 
+
+
+        //Итоговое задание 5.6
+        #region
+        static void Opros()
+        {
+            (string name, string lastname, int age, bool hasanimal, int quantityflowers) anketa;
+
+            Console.WriteLine("Введите своё имя");
+            anketa.name = Console.ReadLine();
+
+            Console.WriteLine("Введите свою фамилию");
+            anketa.lastname = Console.ReadLine();
+
+            Console.WriteLine("Сколько вам полных лет?");
+            anketa.age = ControlAge(int.Parse(Console.ReadLine()));
+
+            Console.WriteLine("Есть ли у вас домашнее животное, Да/Нет?");
+            bool item1 = ControlHasAnimal(Console.ReadLine());
+            if (item1 = true)
+            {
+                anketa.hasanimal = item1;
+                Console.WriteLine("Сколько у вас домашних живатных?");
+                int item2 = int.Parse(Console.ReadLine());
+                ArrayFavoritAnimals(item2);
+            }
+
+            Console.WriteLine("Сколько у вас любимых цветов, их количество?");
+            int item3 = ControlQuantityFlowers(int.Parse(Console.ReadLine()));
+            if ( item3 > 0 )
+            {
+                anketa.quantityflowers = item3;
+                ArrayFavoritFlowers(item3);
+            } 
+
+
+
+            
+            
+
+
+
+
+        }
+
+        #endregion
+
+
+
+
+
+
+        //-----------------
+        //Архив
+        #region
+
+
+
+
+        //Задача 5.5.8
+        #region
+        /*
+        Console.WriteLine("Введите базовое число для вычисления степени");
+        var num1 = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Введите степень возведения");
+        var num2 = byte.Parse(Console.ReadLine());
+
+
+        Console.WriteLine(PowerUp(num1, num2));
+        Console.ReadKey();
+        */
+
+        #endregion
+
+
+
+
+
+        //Задача 5.5.5
+        #region
+        /*
+        Console.WriteLine("Введите число для вычисления факториала");
+        var a = int.Parse(Console.ReadLine());
+        Console.WriteLine(Factorial(a));
+        Console.ReadKey();
+        */
+
+        #endregion
+
+
+
+
         //Задача 5.5.3
         #region
-        
+        /*
         Console.WriteLine("Напишите что-то");
         string say = Console.ReadLine();
         
@@ -377,13 +618,8 @@ class MainClass
         
         Eho(say, ref deep);
         Console.ReadKey();
-        
+        */
         #endregion
-
-
-        //---------------------------------------------------------
-        //Архив
-        #region
 
 
 
