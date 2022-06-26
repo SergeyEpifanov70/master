@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\YandexDisk\\08 - Csharp\\01 - Хранилище локальных репозиториев\\01 - SkillFactory\\Task-3_5_2\\Task-3_5_2.csproj",
-      "projectName": "Task-3_5_2",
-      "projectPath": "C:\\YandexDisk\\08 - Csharp\\01 - Хранилище локальных репозиториев\\01 - SkillFactory\\Task-3_5_2\\Task-3_5_2.csproj",
+      "projectUniqueName": "C:\\YandexDisk\\08 - Csharp\\01 - Хранилище локальных репозиториев\\01 - SkillFactory\\Task-3_5_2\\Домашние задания SkillFactory.csproj",
+      "projectName": "Домашние задания SkillFactory",
+      "projectPath": "C:\\YandexDisk\\08 - Csharp\\01 - Хранилище локальных репозиториев\\01 - SkillFactory\\Task-3_5_2\\Домашние задания SkillFactory.csproj",
       "packagesPath": "C:\\Users\\Sergey\\.nuget\\packages\\",
       "outputPath": "C:\\YandexDisk\\08 - Csharp\\01 - Хранилище локальных репозиториев\\01 - SkillFactory\\Task-3_5_2\\obj\\",
       "projectStyle": "PackageReference",
