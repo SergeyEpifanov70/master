@@ -27,16 +27,38 @@ class MainClass
 
     static bool ControlHasAnimal(string hasanimal1)
     {
-        if (hasanimal1 == "Да" | hasanimal1 == "да")
+        bool answer = true;
+        string hasanimal2 = hasanimal1;
+        bool flag = true;
+        do
         {
-            return true;
+            if (hasanimal2 != "Да" | hasanimal2 != "да")
+            {
+                if (hasanimal2 == "Нет" | hasanimal2 == "нет")
+                {
+                    answer = false;
+                    flag = true;
+                }
+                else
+                {
+                    Console.WriteLine("Пожалуйста, введите корректный ответ - или да, или нет");
+                    hasanimal2 = Console.ReadLine();
+                    flag = false;
+                }
+            }
+            if (hasanimal2 == "Да" | hasanimal2 == "да")
+            {
+                answer = true;
+                flag = true;
+            }
         }
-        else
-        {
-            return false;
-        }
+        while (flag);
 
+        return answer;
     }
+
+
+
 
 
     static int ControlQuantityAnimals(int quantityanimal1)
@@ -128,6 +150,54 @@ class MainClass
     }
 
 
+
+
+    static Tuple<string, string, int, bool, int, int> Opros()
+    {
+        (string name, string lastname, int age, bool hasanimal, int quantityanimals, int quantityflowers) anketa;
+
+        Console.WriteLine("Введите своё имя");
+        anketa.name = Console.ReadLine();
+
+        Console.WriteLine("Введите свою фамилию");
+        anketa.lastname = Console.ReadLine();
+
+        Console.WriteLine("Сколько вам полных лет?");
+        anketa.age = ControlAge(int.Parse(Console.ReadLine()));
+
+        Console.WriteLine("Есть ли у вас домашнее животное, Да/Нет?");
+        anketa.hasanimal = ControlHasAnimal(Console.ReadLine());
+
+
+        int item1 = ControlQuantityAnimals(int.Parse(Console.ReadLine()));
+        anketa.quantityanimals = item1;
+        if (item1 > 0)
+        {
+            ArrayFavoritAnimals(item1);
+        }
+
+        Console.WriteLine("Сколько у вас любимых цветов, их количество?");
+        int item2 = ControlQuantityFlowers(int.Parse(Console.ReadLine()));
+        anketa.quantityflowers = item2;
+        if (item2 > 0)
+        {
+            ArrayFavoritFlowers(item2);
+        }
+
+        return Tuple.Create(anketa.name, anketa.lastname, anketa.age, anketa.hasanimal, anketa.quantityanimals, anketa.quantityflowers);
+    }
+
+
+
+    static void ShowOpros(Tuple<string, string, int, bool, int, int> anketa1)
+    {
+        Console.WriteLine("Ваше имя - " + anketa1.Item1);
+        Console.WriteLine("Ваша фамилия - " + anketa1.Item2);
+        Console.WriteLine("Ваш возраст - " + anketa1.Item3);
+        Console.WriteLine("Наличие у вас животных - " + anketa1.Item4);
+        Console.WriteLine("У вас содержится следующее кол-во животных - " + anketa1.Item5);
+        Console.WriteLine("Общее количество любимых вами видов цветов - " + anketa1.Item6);
+    }
 
     #endregion
 
@@ -568,46 +638,38 @@ class MainClass
 
         //Итоговое задание 5.6
         #region
-        static void Opros()
+
+       ShowOpros(Opros());
+
+
+
+        /*
+        static Tuple<string, string, int, bool, int, int> FedyaAnketa()
         {
-            (string name, string lastname, int age, int quantityanimals, int quantityflowers) anketa;
+            string name = "name", lastname = "lastname";
+            bool hasAnimal = false;
+            int age = 11, quantityAnimals = 0, quantityFlowers = 1;
 
-            Console.WriteLine("Введите своё имя");
-            anketa.name = Console.ReadLine();
-
-            Console.WriteLine("Введите свою фамилию");
-            anketa.lastname = Console.ReadLine();
-
-            Console.WriteLine("Сколько вам полных лет?");
-            anketa.age = ControlAge(int.Parse(Console.ReadLine()));
-
-            Console.WriteLine("Есть ли у вас домашнее животное, Да/Нет?");
-            int item1 = ControlQuantityAnimals(int.Parse(Console.ReadLine()));
-            anketa.quantityanimals = item1;
-            if (item1 > 0)
-            {
-                ArrayFavoritAnimals(item1);
-            }
-
-            Console.WriteLine("Сколько у вас любимых цветов, их количество?");
-            int item2 = ControlQuantityFlowers(int.Parse(Console.ReadLine()));
-            anketa.quantityflowers = item2;
-            if ( item2 > 0 )
-            {
-                ArrayFavoritFlowers(item2);
-            } 
+            (string name, string lastname, int age, bool hasanimal, int quantityanimals, int quantityflowers) anketa;
 
 
+            // return Tuple.Create(name, lastname, age, hasAnimal, quantityAnimals, quantityFlowers);
 
-            
-            
-
-
-
-
+            return Tuple<string, string, int, bool, int, int>(anketa);
         }
 
+        static void Show(Tuple<string, string, int, bool, int, int> anketa)
+        {
+
+        }
+        */
+
+
+
+
         #endregion
+
+
 
 
 
@@ -660,10 +722,10 @@ class MainClass
         /*
         Console.WriteLine("Напишите что-то");
         string say = Console.ReadLine();
-        
+
         Console.WriteLine("Укажите глубину эха");
         int deep = int.Parse(Console.ReadLine());
-        
+
         Eho(say, ref deep);
         Console.ReadKey();
         */
