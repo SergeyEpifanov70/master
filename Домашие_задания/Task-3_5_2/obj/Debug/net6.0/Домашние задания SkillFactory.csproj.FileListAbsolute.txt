@@ -1,0 +1,15 @@
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\Task-3_5_2\obj\Debug\net6.0\Домашние задания SkillFactory.csproj.AssemblyReference.cache
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\Task-3_5_2\obj\Debug\net6.0\Домашние задания SkillFactory.GeneratedMSBuildEditorConfig.editorconfig
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\Task-3_5_2\obj\Debug\net6.0\Домашние задания SkillFactory.AssemblyInfoInputs.cache
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\Task-3_5_2\obj\Debug\net6.0\Домашние задания SkillFactory.AssemblyInfo.cs
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\Task-3_5_2\obj\Debug\net6.0\Домашние задания SkillFactory.csproj.CoreCompileInputs.cache
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\Task-3_5_2\bin\Debug\net6.0\Домашние задания SkillFactory.exe
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\Task-3_5_2\bin\Debug\net6.0\Домашние задания SkillFactory.deps.json
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\Task-3_5_2\bin\Debug\net6.0\Домашние задания SkillFactory.runtimeconfig.json
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\Task-3_5_2\bin\Debug\net6.0\Домашние задания SkillFactory.dll
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\Task-3_5_2\bin\Debug\net6.0\Домашние задания SkillFactory.pdb
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\Task-3_5_2\obj\Debug\net6.0\Домашние задания SkillFactory.dll
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\Task-3_5_2\obj\Debug\net6.0\refint\Домашние задания SkillFactory.dll
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\Task-3_5_2\obj\Debug\net6.0\Домашние задания SkillFactory.pdb
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\Task-3_5_2\obj\Debug\net6.0\Домашние задания SkillFactory.genruntimeconfig.cache
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\Task-3_5_2\obj\Debug\net6.0\ref\Домашние задания SkillFactory.dll
