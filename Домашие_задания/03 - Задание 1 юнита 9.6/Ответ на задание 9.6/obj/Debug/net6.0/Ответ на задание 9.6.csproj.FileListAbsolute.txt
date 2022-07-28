@@ -1,0 +1,15 @@
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\03 - Задание 1 юнита 9.6\Ответ на задание 9.6\bin\Debug\net6.0\Ответ на задание 9.6.exe
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\03 - Задание 1 юнита 9.6\Ответ на задание 9.6\bin\Debug\net6.0\Ответ на задание 9.6.deps.json
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\03 - Задание 1 юнита 9.6\Ответ на задание 9.6\bin\Debug\net6.0\Ответ на задание 9.6.runtimeconfig.json
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\03 - Задание 1 юнита 9.6\Ответ на задание 9.6\bin\Debug\net6.0\Ответ на задание 9.6.dll
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\03 - Задание 1 юнита 9.6\Ответ на задание 9.6\bin\Debug\net6.0\Ответ на задание 9.6.pdb
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\03 - Задание 1 юнита 9.6\Ответ на задание 9.6\obj\Debug\net6.0\Ответ на задание 9.6.csproj.AssemblyReference.cache
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\03 - Задание 1 юнита 9.6\Ответ на задание 9.6\obj\Debug\net6.0\Ответ на задание 9.6.GeneratedMSBuildEditorConfig.editorconfig
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\03 - Задание 1 юнита 9.6\Ответ на задание 9.6\obj\Debug\net6.0\Ответ на задание 9.6.AssemblyInfoInputs.cache
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\03 - Задание 1 юнита 9.6\Ответ на задание 9.6\obj\Debug\net6.0\Ответ на задание 9.6.AssemblyInfo.cs
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\03 - Задание 1 юнита 9.6\Ответ на задание 9.6\obj\Debug\net6.0\Ответ на задание 9.6.csproj.CoreCompileInputs.cache
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\03 - Задание 1 юнита 9.6\Ответ на задание 9.6\obj\Debug\net6.0\Ответ на задание 9.6.dll
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\03 - Задание 1 юнита 9.6\Ответ на задание 9.6\obj\Debug\net6.0\refint\Ответ на задание 9.6.dll
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\03 - Задание 1 юнита 9.6\Ответ на задание 9.6\obj\Debug\net6.0\Ответ на задание 9.6.pdb
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\03 - Задание 1 юнита 9.6\Ответ на задание 9.6\obj\Debug\net6.0\Ответ на задание 9.6.genruntimeconfig.cache
+C:\YandexDisk\08 - Csharp\01 - Хранилище локальных репозиториев\01 - SkillFactory\Домашие_задания\03 - Задание 1 юнита 9.6\Ответ на задание 9.6\obj\Debug\net6.0\ref\Ответ на задание 9.6.dll

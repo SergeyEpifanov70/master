@@ -1,1266 +1,1594 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Collections.Generic;
 
 
-    // -----------------------
 
-    //Архив
-    #region
 
-    // Задание 8.4.3
-    #region
-    /*
-    [Serializable]
-    class Contact
+/*
+class MyException : Exception
+{
+    public MyException()
     {
 
-        public string Name { get; set; }
-        public long PhoneNumber { get; set; }
-        public string Email { get; set; }
+    }
+    public MyException (string message) : base(message)
+    {
+        try()
+    }
+
+*/
 
 
-        public Contact(string name, long phoneNumber, string email)
-        {
-            Name = name;
-            PhoneNumber = phoneNumber;
-            Email = email;
-        }
+
+
+
+
+
+// -----------------------
+
+//Архив
+#region
+
+// Задание 8.4.3
+#region
+/*
+[Serializable]
+class Contact
+{
+
+    public string Name { get; set; }
+    public long PhoneNumber { get; set; }
+    public string Email { get; set; }
+
+
+    public Contact(string name, long phoneNumber, string email)
+    {
+        Name = name;
+        PhoneNumber = phoneNumber;
+        Email = email;
+    }
+
+}
+
+*/
+
+#endregion
+
+
+
+
+
+// Задание 7.6.12
+#region
+/*
+
+
+class Engine { }
+class ElectricEngine : Engine { }
+
+class GasEngine : Engine { }
+
+class CarPart { }
+
+class Battery : CarPart { }
+
+class Differential : CarPart { }
+
+class Wheel : CarPart { }
+
+class Car<TEngine> where TEngine : Engine
+
+{
+    public TEngine Engine;
+    public abstract void ChangePart<TPart>(TPart newPart) where TPart : CarPart
+    {
 
     }
 
-    */
+}
 
-    #endregion
-
-
-
-
-
-    // Задание 7.6.12
-    #region
-    /*
-
-
-    class Engine { }
-    class ElectricEngine : Engine { }
-
-    class GasEngine : Engine { }
-
-    class CarPart { }
-
-    class Battery : CarPart { }
-
-    class Differential : CarPart { }
-
-    class Wheel : CarPart { }
-
-    class Car<TEngine> where TEngine : Engine
-
+class ElectricCar : Car<ElectricEngine> 
+{
+    public override void ChangePart<TPart>(TPart newPart)
     {
-        public TEngine Engine;
-        public abstract void ChangePart<TPart>(TPart newPart) where TPart : CarPart
+
+    }
+}
+
+class GasCar : Car<GasEngine> 
+{
+    public override void ChangePart<TPart>(TPart newPart)
+    {
+
+    }
+}
+
+*/
+#endregion
+
+
+
+// Задание 7.6.9
+#region
+/*
+
+
+class Engine { }
+class ElectricEngine : Engine { }
+
+class GasEngine : Engine { }
+
+class CarPart { }
+
+class Battery : CarPart { }
+
+class Differential : CarPart { }
+
+class Wheel : CarPart { }
+
+class Car<TEngine> where TEngine : Engine
+
+{
+    public TEngine Engine;
+    public virtual void ChangePart<TPart>(TPart newPart) where TPart : CarPart
         {
 
         }
 
-    }
+}
 
-    class ElectricCar : Car<ElectricEngine> 
-    {
-        public override void ChangePart<TPart>(TPart newPart)
+*/
+#endregion
+
+
+
+// Задание 7.6.7
+#region
+/*
+class ElectricEngine { }
+
+class GasEngine { }
+
+class Battery { }
+
+class Differential { }
+
+class Wheel { }
+
+class Car<T1>
+{
+    public T1 Engine;
+    public virtual void ChangePart<T2>(T2 new newPart)
         {
 
         }
-    }
 
-    class GasCar : Car<GasEngine> 
+}
+
+*/
+#endregion
+
+
+
+
+
+// Задание 7.6.6
+#region
+/*
+class Id<T> { }
+
+class Value<T> { }
+
+class Record<T1, T2> 
+{
+    public T1 Id;
+    public T2 Value;
+    public DateTime Date;
+}
+
+*/
+#endregion
+
+
+
+
+// Задание 7.6.2
+#region
+/*
+class ElectricEngine { }
+
+class GasEngine { }
+
+class Car<T>
+{
+    public T Engine;
+
+}
+*/
+
+#endregion
+
+
+
+
+
+
+//Задание 7.5.9
+#region
+/*
+static class intExtensions
+{
+    public static int GetNegativ(this int number)
     {
-        public override void ChangePart<TPart>(TPart newPart)
+        if (number < 0) 
         {
-
+            return number;
         }
-    }
-
-    */
-    #endregion
-
-
-
-    // Задание 7.6.9
-    #region
-    /*
-
-
-    class Engine { }
-    class ElectricEngine : Engine { }
-
-    class GasEngine : Engine { }
-
-    class CarPart { }
-
-    class Battery : CarPart { }
-
-    class Differential : CarPart { }
-
-    class Wheel : CarPart { }
-
-    class Car<TEngine> where TEngine : Engine
-
-    {
-        public TEngine Engine;
-        public virtual void ChangePart<TPart>(TPart newPart) where TPart : CarPart
+        else
+        {
+            if (number == 0)
             {
-
-            }
-
-    }
-
-    */
-    #endregion
-
-
-
-    // Задание 7.6.7
-    #region
-    /*
-    class ElectricEngine { }
-
-    class GasEngine { }
-
-    class Battery { }
-
-    class Differential { }
-
-    class Wheel { }
-
-    class Car<T1>
-    {
-        public T1 Engine;
-        public virtual void ChangePart<T2>(T2 new newPart)
-            {
-
-            }
-
-    }
-
-    */
-    #endregion
-
-
-
-
-
-    // Задание 7.6.6
-    #region
-    /*
-    class Id<T> { }
-
-    class Value<T> { }
-
-    class Record<T1, T2> 
-    {
-        public T1 Id;
-        public T2 Value;
-        public DateTime Date;
-    }
-
-    */
-    #endregion
-
-
-
-
-    // Задание 7.6.2
-    #region
-    /*
-    class ElectricEngine { }
-
-    class GasEngine { }
-
-    class Car<T>
-    {
-        public T Engine;
-
-    }
-    */
-
-    #endregion
-
-
-
-
-
-
-    //Задание 7.5.9
-    #region
-    /*
-    static class intExtensions
-    {
-        public static int GetNegativ(this int number)
-        {
-            if (number < 0) 
-            {
-                return number;
+                return 0;
             }
             else
             {
-                if (number == 0)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return -number;
-                }
+                return -number;
             }
         }
+    }
 
-        public static int GetPositive(this int number)
+    public static int GetPositive(this int number)
+    {
+        if (number > 0)
         {
-            if (number > 0)
+            return number;
+        }
+        else
+        {
+            if (number == 0)
             {
-                return number;
+                return 0;
             }
             else
             {
-                if (number == 0)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return -number;
-                }
+                return -number;
             }
         }
     }
-    */
-    #endregion
+}
+*/
+#endregion
 
 
-    // Задание 7.5.3
-    #region
-    /*
-    class Helper
+// Задание 7.5.3
+#region
+/*
+class Helper
+{
+    public static void Swap(ref int a,ref int b)
     {
-        public static void Swap(ref int a,ref int b)
+        var temp = a;
+        a = b;
+        b = temp;
+    }
+}
+*/
+#endregion
+
+
+
+
+
+// Задание 7.3.3
+#region
+/*
+abstract class ComputerParts
+{
+    public abstract void Work();
+
+}
+
+class Processor: ComputerParts
+{
+    public override void Work() { }
+
+}
+
+class MotherBoard: ComputerParts
+{
+    public override void Work() { }
+
+}
+
+class GraphicCard: ComputerParts
+{
+    public override void Work() { }
+
+}
+
+
+
+*/
+#endregion
+
+
+
+
+//Задание 7.2.7 №куп    
+#region
+/*
+class A
+{
+    public virtual void Display()
+    {
+        Console.WriteLine("A");
+    }
+}
+class B : A
+{
+    public new void Display()
+    {
+        Console.WriteLine("В");
+    }
+}
+
+class C : A
+{
+    public override void Display()
+    {
+        Console.WriteLine("C");
+    }
+}
+
+class D : B
+{
+    public new void Display()
+    {
+        Console.WriteLine("D");
+    }
+}
+
+class E : C
+{
+    public new void Display()
+    {
+        Console.WriteLine("E");
+    }
+}
+*/
+#endregion
+
+
+
+
+
+
+
+//Задание 7.2.5
+#region
+/*
+class BaseClass
+{
+    public virtual void Display()
+    {
+        Console.WriteLine("Метод класса BaseClass");
+    }
+}
+
+class DerivedClass : BaseClass
+{
+    public override void Display()
+    {
+        base.Display();
+        Console.WriteLine("Метод класса DerivedClass");
+    }
+}
+*/
+#endregion
+
+
+
+
+// Задание 7.1.10
+#region
+/*
+class BaseClass
+{
+    protected string Name;
+
+    public BaseClass(string name)
+    {
+        Name = name;
+    }
+}
+
+class DerivedClass : BaseClass
+{
+    public string Description;
+
+    public int Counter;
+    public DerivedClass(string name, string descripton) : base(name)
+    {
+        Description = descripton;
+    }
+    public DerivedClass(string name, string descriptio, int counter) : base(name)
+    {
+        Description = descripton; 
+        Counter = counter;
+    }
+}
+
+*/
+
+
+
+#endregion
+
+
+
+
+
+// Задание 6.6.2
+#region
+/*
+
+class User
+{
+    private int age;
+
+    public int Age
+    {
+        get
         {
-            var temp = a;
-            a = b;
-            b = temp;
+            return age;
         }
-    }
-    */
-    #endregion
 
-
-
-
-
-    // Задание 7.3.3
-    #region
-    /*
-    abstract class ComputerParts
-    {
-        public abstract void Work();
-
-    }
-
-    class Processor: ComputerParts
-    {
-        public override void Work() { }
-
-    }
-
-    class MotherBoard: ComputerParts
-    {
-        public override void Work() { }
-
-    }
-
-    class GraphicCard: ComputerParts
-    {
-        public override void Work() { }
-
-    }
-
-
-
-    */
-    #endregion
-
-
-
-
-    //Задание 7.2.7 №куп    
-    #region
-    /*
-    class A
-    {
-        public virtual void Display()
+        set
         {
-            Console.WriteLine("A");
-        }
-    }
-    class B : A
-    {
-        public new void Display()
-        {
-            Console.WriteLine("В");
-        }
-    }
-
-    class C : A
-    {
-        public override void Display()
-        {
-            Console.WriteLine("C");
-        }
-    }
-
-    class D : B
-    {
-        public new void Display()
-        {
-            Console.WriteLine("D");
-        }
-    }
-
-    class E : C
-    {
-        public new void Display()
-        {
-            Console.WriteLine("E");
-        }
-    }
-    */
-    #endregion
-
-
-
-
-
-
-
-    //Задание 7.2.5
-    #region
-    /*
-    class BaseClass
-    {
-        public virtual void Display()
-        {
-            Console.WriteLine("Метод класса BaseClass");
-        }
-    }
-
-    class DerivedClass : BaseClass
-    {
-        public override void Display()
-        {
-            base.Display();
-            Console.WriteLine("Метод класса DerivedClass");
-        }
-    }
-    */
-    #endregion
-
-
-
-
-    // Задание 7.1.10
-    #region
-    /*
-    class BaseClass
-    {
-        protected string Name;
-
-        public BaseClass(string name)
-        {
-            Name = name;
-        }
-    }
-
-    class DerivedClass : BaseClass
-    {
-        public string Description;
-
-        public int Counter;
-        public DerivedClass(string name, string descripton) : base(name)
-        {
-            Description = descripton;
-        }
-        public DerivedClass(string name, string descriptio, int counter) : base(name)
-        {
-            Description = descripton; 
-            Counter = counter;
-        }
-    }
-
-    */
-
-
-
-    #endregion
-
-
-
-
-
-    // Задание 6.6.2
-    #region
-    /*
-
-    class User
-    {
-        private int age;
-
-        public int Age
-        {
-            get
+            if (value < 18)
             {
-                return age;
+                Console.WriteLine("Возраст должен быть не меньше 18");
             }
-
-            set
+            else
             {
-                if (value < 18)
-                {
-                    Console.WriteLine("Возраст должен быть не меньше 18");
-                }
-                else
-                {
-                    age = value;
-                }
+                age = value;
             }
         }
-        public string Login
-        {
-            get
-            {
-                return Login;
-            }
-
-            set
-            {
-                if (value.Length < 3)
-                {
-                    Console.WriteLine("Логин болжен быть не менее 3 символов");
-                }
-                else
-                {
-                    Login = value;
-                }
-            }
-
-        private string email;
-        private string Email
-        {
-            get
-            {
-                return email;
-            }
-            set
-            {
-                var a = "@";
-                if(!value.Contains(а))
-                {
-                    Console.WriteLine("Неправильная почта");
-                }
-                else
-                {
-                    email = value;
-                }
-            }
-        }
-
     }
-    */
-    #endregion
-
-
-
-
-    // Задание 6.6.1
-    #region
-    /*
-    class TrafficLight
+    public string Login
     {
-        private void ChangeColor(string color)
+        get
         {
-
+            return Login;
         }
-        public string GetColor()
-        {
 
+        set
+        {
+            if (value.Length < 3)
+            {
+                Console.WriteLine("Логин болжен быть не менее 3 символов");
+            }
+            else
+            {
+                Login = value;
+            }
+        }
+
+    private string email;
+    private string Email
+    {
+        get
+        {
+            return email;
+        }
+        set
+        {
+            var a = "@";
+            if(!value.Contains(а))
+            {
+                Console.WriteLine("Неправильная почта");
+            }
+            else
+            {
+                email = value;
+            }
         }
     }
-    */
+
+}
+*/
+#endregion
+
+
+
+
+// Задание 6.6.1
+#region
+/*
+class TrafficLight
+{
+    private void ChangeColor(string color)
+    {
+
+    }
+    public string GetColor()
+    {
+
+    }
+}
+*/
+#endregion
+
+
+
+
+
+//Юнит 6.3 к видео
+#region
+/*
+namespace FirstApp
+{
+    struct Data
+    {
+        public string Name;
+        public int Lenght;
+        public int Version;
+        public int[] Array;
+    }
+
+    class Obj
+    {
+        public string Name;
+        public bool IsAlive;
+        public int Weight;
+    }
+}
+
+
+class Programm
+{
+    //Юнит 6.3 к видео
+    #region
+    Data data = new Data { Name = "Запись", Lenght = 10, Version = 1, Array = new int[] { 15, 30 } };
+    Obj obj = new Obj { name = "Стол", IsAlive = false, Weight = 15 };
+
+    var dataCopy = data;
+    var objCopy = obj;
+
+
+
     #endregion
+}
 
 
 
+#endregion
+
+
+
+
+class MainClass
+{
 
 
     //Юнит 6.3 к видео
     #region
-    /*
-    namespace FirstApp
+    Data data = new Data {Name = "Запись", Lenght = 10, Ver };
+*/
+#endregion
+
+
+
+
+//Задания 6.3.2
+#region
+/*
+class Bus
+{
+    public int? Load;
+
+    public void PrintStatus()
     {
-        struct Data
+        if (Load.HasValue)
         {
-            public string Name;
-            public int Lenght;
-            public int Version;
-            public int[] Array;
+            Console.WriteLine("В автобусе {0} пассажиров.", Load.Value);
+        }
+        else 
+        {
+            Console.WriteLine("Автобус пуст"); 
         }
 
-        class Obj
-        {
-            public string Name;
-            public bool IsAlive;
-            public int Weight;
-        }
+    }
+}
+*/
+
+#endregion
+
+
+
+
+
+//Задание 6.2.8
+#region
+/*
+class Rectangl
+{
+
+    //Поля класса
+    public int a;
+    public int b;
+
+    //Конструктор класса
+    public Rectangl()
+    {
+        a = 6;
+        b = 4;
+    }
+
+    //Конструктор класса
+    public Rectangl(int a1)
+    {
+        a = a1;
+        b = a1;
+    }
+    //Конструктор класса
+    public Rectangl(int a1, int b1)
+    {
+        a = a1;
+        b = b1;
     }
 
 
-    class Programm
+    //Метод класса
+    static double Square()
     {
-        //Юнит 6.3 к видео
-        #region
-        Data data = new Data { Name = "Запись", Lenght = 10, Version = 1, Array = new int[] { 15, 30 } };
-        Obj obj = new Obj { name = "Стол", IsAlive = false, Weight = 15 };
-
-        var dataCopy = data;
-        var objCopy = obj;
-
-
-
-        #endregion
+        return a * b;
     }
 
 
+}
+*/
+#endregion
 
-    #endregion
 
 
-
-
-    class MainClass
+//Итоговое задание 5.6
+#region
+/*
+static int ControlAge(int age1)
+{
+    bool flag = true;
+    do
     {
-
-
-        //Юнит 6.3 к видео
-        #region
-        Data data = new Data {Name = "Запись", Lenght = 10, Ver };
-    */
-    #endregion
-
-
-
-
-    //Задания 6.3.2
-    #region
-    /*
-    class Bus
-    {
-        public int? Load;
-
-        public void PrintStatus()
+        if (age1 < 1)
         {
-            if (Load.HasValue)
-            {
-                Console.WriteLine("В автобусе {0} пассажиров.", Load.Value);
-            }
-            else 
-            {
-                Console.WriteLine("Автобус пуст"); 
-            }
-
+            Console.WriteLine("Введите корректное значение вашего возраста, надо указать количество полных лет");
+            flag = false;
         }
     }
-    */
+    while (true);
 
-    #endregion
-
-
-
+    return age1;
+}
 
 
-    //Задание 6.2.8
-    #region
-    /*
-    class Rectangl
+
+static bool ControlHasAnimal(string hasanimal1)
+{
+    bool answer = true;
+    string hasanimal2 = hasanimal1;
+    bool flag = true;
+    do
     {
-
-        //Поля класса
-        public int a;
-        public int b;
-
-        //Конструктор класса
-        public Rectangl()
+        if (hasanimal2 != "Да" | hasanimal2 != "да")
         {
-            a = 6;
-            b = 4;
-        }
-
-        //Конструктор класса
-        public Rectangl(int a1)
-        {
-            a = a1;
-            b = a1;
-        }
-        //Конструктор класса
-        public Rectangl(int a1, int b1)
-        {
-            a = a1;
-            b = b1;
-        }
-
-
-        //Метод класса
-        static double Square()
-        {
-            return a * b;
-        }
-
-
-    }
-    */
-    #endregion
-
-
-
-    //Итоговое задание 5.6
-    #region
-    /*
-    static int ControlAge(int age1)
-    {
-        bool flag = true;
-        do
-        {
-            if (age1 < 1)
+            if (hasanimal2 == "Нет" | hasanimal2 == "нет")
             {
-                Console.WriteLine("Введите корректное значение вашего возраста, надо указать количество полных лет");
-                flag = false;
-            }
-        }
-        while (true);
-
-        return age1;
-    }
-
-
-
-    static bool ControlHasAnimal(string hasanimal1)
-    {
-        bool answer = true;
-        string hasanimal2 = hasanimal1;
-        bool flag = true;
-        do
-        {
-            if (hasanimal2 != "Да" | hasanimal2 != "да")
-            {
-                if (hasanimal2 == "Нет" | hasanimal2 == "нет")
-                {
-                    answer = false;
-                    flag = true;
-                }
-                else
-                {
-                    Console.WriteLine("Пожалуйста, введите корректный ответ - или да, или нет");
-                    hasanimal2 = Console.ReadLine();
-                    flag = false;
-                }
-            }
-            if (hasanimal2 == "Да" | hasanimal2 == "да")
-            {
-                answer = true;
+                answer = false;
                 flag = true;
-            }
-        }
-        while (flag);
-
-        return answer;
-    }
-
-
-
-
-
-    static int ControlQuantityAnimals(int quantityanimal1)
-    {
-        int quantityanimal2 = quantityanimal1;
-        bool flag = true;
-        do
-        {
-            if (quantityanimal2 == 0)
-            {
-                Console.WriteLine("Вы не любите животных, да/нет?");
-                var temp1 = Console.ReadLine();
-                if (temp1 == "Да" | temp1 == "да")
-                {
-                    quantityanimal2 = 0;
-                }
-                else
-                {
-                    if (quantityanimal2 < 0)
-                    {
-                        Console.WriteLine("Пожалуйста, введите корректное число");
-                        quantityanimal2 = int.Parse(Console.ReadLine());
-                        flag = false;
-                    }
-                }
-            }
-        }
-        while (flag);
-        return quantityanimal2;
-    }
-
-    static int ControlQuantityFlowers(int quantityflowers1)
-    {
-        int quantityflowers2 = quantityflowers1;
-        bool flag = true;
-        do
-        {
-            if (quantityflowers2 == 0)
-            {
-                Console.WriteLine("Вы не любите цветы, да/нет?");
-                var temp1 = Console.ReadLine();
-                if (temp1 == "Да" | temp1 == "да")
-                {
-                    quantityflowers2 = 0;
-                }
-                else
-                {
-                    if (quantityflowers2 < 0)
-                    {
-                        Console.WriteLine("Пожалуйста, введите корректное число");
-                        quantityflowers2 = int.Parse(Console.ReadLine());
-                        flag = false;
-                    }
-                }
-            }
-        } 
-        while (flag);
-        return quantityflowers2;
-    }
-
-
-
-
-    static string[] ArrayFavoritAnimals(int i)
-    {
-        string[] FavoritAnimals = new string[i];
-        for(i = 0; i < FavoritAnimals.Length; i++)
-        {
-            Console.WriteLine("Введите кличку {0} питомца", i);
-            string nickname = Console.ReadLine();
-            FavoritAnimals[i] = nickname;
-        }
-        return FavoritAnimals;
-    }
-
-
-
-
-    static string[] ArrayFavoritFlowers(int i)
-    {
-        string[] FavoritFlowers = new string[i];
-        for(int j = 0; j < FavoritFlowers.Length; j++)
-        {
-            Console.WriteLine("Введите название {0} цветка", j);
-            string flower = Console.ReadLine();
-            FavoritFlowers[j] = flower;
-        }
-        return FavoritFlowers;
-    }
-
-
-
-
-    static Tuple<string, string, int, bool, int, int> Opros()
-    {
-        (string name, string lastname, int age, bool hasanimal, int quantityanimals, int quantityflowers) anketa;
-
-        Console.WriteLine("Введите своё имя");
-        anketa.name = Console.ReadLine();
-
-        Console.WriteLine("Введите свою фамилию");
-        anketa.lastname = Console.ReadLine();
-
-        Console.WriteLine("Сколько вам полных лет?");
-        anketa.age = ControlAge(int.Parse(Console.ReadLine()));
-
-        Console.WriteLine("Есть ли у вас домашнее животное, Да/Нет?");
-        anketa.hasanimal = ControlHasAnimal(Console.ReadLine());
-
-
-        int item1 = ControlQuantityAnimals(int.Parse(Console.ReadLine()));
-        anketa.quantityanimals = item1;
-        if (item1 > 0)
-        {
-            ArrayFavoritAnimals(item1);
-        }
-
-        Console.WriteLine("Сколько у вас любимых цветов, их количество?");
-        int item2 = ControlQuantityFlowers(int.Parse(Console.ReadLine()));
-        anketa.quantityflowers = item2;
-        if (item2 > 0)
-        {
-            ArrayFavoritFlowers(item2);
-        }
-
-        return Tuple.Create(anketa.name, anketa.lastname, anketa.age, anketa.hasanimal, anketa.quantityanimals, anketa.quantityflowers);
-    }
-
-
-
-    static void ShowOpros(Tuple<string, string, int, bool, int, int> anketa1)
-    {
-        Console.WriteLine("Ваше имя - " + anketa1.Item1);
-        Console.WriteLine("Ваша фамилия - " + anketa1.Item2);
-        Console.WriteLine("Ваш возраст - " + anketa1.Item3);
-        Console.WriteLine("Наличие у вас животных - " + anketa1.Item4);
-        Console.WriteLine("У вас содержится следующее кол-во животных - " + anketa1.Item5);
-        Console.WriteLine("Общее количество любимых вами видов цветов - " + anketa1.Item6);
-    }
-    */
-    #endregion
-
-
-
-
-
-    //Задача 5.5.8
-    #region
-    /*
-    private static decimal PowerUp(int N, byte pow)
-    {
-        decimal temp = 1;
-        if (pow == 0)
-        {
-            return 1;
-        }
-        else
-        {
-            if (pow == 1)
-            {
-                return N;
             }
             else
             {
-
-                //for (var i = 1; i < pow + 1; i++)
-                //{
-                    //temp = temp * N;
-                //}
-
-                return N*PowerUp(N, --pow);
-
+                Console.WriteLine("Пожалуйста, введите корректный ответ - или да, или нет");
+                hasanimal2 = Console.ReadLine();
+                flag = false;
             }
-
         }
-
-        return temp;
-
-    }
-    */
-    #endregion
-
-
-
-
-
-    //Задача 5.5.5
-    #region
-    /*
-    static decimal Factorial(int x)
-    {
-
-        if (x == 0)
+        if (hasanimal2 == "Да" | hasanimal2 == "да")
         {
-            return 1;
+            answer = true;
+            flag = true;
+        }
+    }
+    while (flag);
+
+    return answer;
+}
+
+
+
+
+
+static int ControlQuantityAnimals(int quantityanimal1)
+{
+    int quantityanimal2 = quantityanimal1;
+    bool flag = true;
+    do
+    {
+        if (quantityanimal2 == 0)
+        {
+            Console.WriteLine("Вы не любите животных, да/нет?");
+            var temp1 = Console.ReadLine();
+            if (temp1 == "Да" | temp1 == "да")
+            {
+                quantityanimal2 = 0;
+            }
+            else
+            {
+                if (quantityanimal2 < 0)
+                {
+                    Console.WriteLine("Пожалуйста, введите корректное число");
+                    quantityanimal2 = int.Parse(Console.ReadLine());
+                    flag = false;
+                }
+            }
+        }
+    }
+    while (flag);
+    return quantityanimal2;
+}
+
+static int ControlQuantityFlowers(int quantityflowers1)
+{
+    int quantityflowers2 = quantityflowers1;
+    bool flag = true;
+    do
+    {
+        if (quantityflowers2 == 0)
+        {
+            Console.WriteLine("Вы не любите цветы, да/нет?");
+            var temp1 = Console.ReadLine();
+            if (temp1 == "Да" | temp1 == "да")
+            {
+                quantityflowers2 = 0;
+            }
+            else
+            {
+                if (quantityflowers2 < 0)
+                {
+                    Console.WriteLine("Пожалуйста, введите корректное число");
+                    quantityflowers2 = int.Parse(Console.ReadLine());
+                    flag = false;
+                }
+            }
+        }
+    } 
+    while (flag);
+    return quantityflowers2;
+}
+
+
+
+
+static string[] ArrayFavoritAnimals(int i)
+{
+    string[] FavoritAnimals = new string[i];
+    for(i = 0; i < FavoritAnimals.Length; i++)
+    {
+        Console.WriteLine("Введите кличку {0} питомца", i);
+        string nickname = Console.ReadLine();
+        FavoritAnimals[i] = nickname;
+    }
+    return FavoritAnimals;
+}
+
+
+
+
+static string[] ArrayFavoritFlowers(int i)
+{
+    string[] FavoritFlowers = new string[i];
+    for(int j = 0; j < FavoritFlowers.Length; j++)
+    {
+        Console.WriteLine("Введите название {0} цветка", j);
+        string flower = Console.ReadLine();
+        FavoritFlowers[j] = flower;
+    }
+    return FavoritFlowers;
+}
+
+
+
+
+static Tuple<string, string, int, bool, int, int> Opros()
+{
+    (string name, string lastname, int age, bool hasanimal, int quantityanimals, int quantityflowers) anketa;
+
+    Console.WriteLine("Введите своё имя");
+    anketa.name = Console.ReadLine();
+
+    Console.WriteLine("Введите свою фамилию");
+    anketa.lastname = Console.ReadLine();
+
+    Console.WriteLine("Сколько вам полных лет?");
+    anketa.age = ControlAge(int.Parse(Console.ReadLine()));
+
+    Console.WriteLine("Есть ли у вас домашнее животное, Да/Нет?");
+    anketa.hasanimal = ControlHasAnimal(Console.ReadLine());
+
+
+    int item1 = ControlQuantityAnimals(int.Parse(Console.ReadLine()));
+    anketa.quantityanimals = item1;
+    if (item1 > 0)
+    {
+        ArrayFavoritAnimals(item1);
+    }
+
+    Console.WriteLine("Сколько у вас любимых цветов, их количество?");
+    int item2 = ControlQuantityFlowers(int.Parse(Console.ReadLine()));
+    anketa.quantityflowers = item2;
+    if (item2 > 0)
+    {
+        ArrayFavoritFlowers(item2);
+    }
+
+    return Tuple.Create(anketa.name, anketa.lastname, anketa.age, anketa.hasanimal, anketa.quantityanimals, anketa.quantityflowers);
+}
+
+
+
+static void ShowOpros(Tuple<string, string, int, bool, int, int> anketa1)
+{
+    Console.WriteLine("Ваше имя - " + anketa1.Item1);
+    Console.WriteLine("Ваша фамилия - " + anketa1.Item2);
+    Console.WriteLine("Ваш возраст - " + anketa1.Item3);
+    Console.WriteLine("Наличие у вас животных - " + anketa1.Item4);
+    Console.WriteLine("У вас содержится следующее кол-во животных - " + anketa1.Item5);
+    Console.WriteLine("Общее количество любимых вами видов цветов - " + anketa1.Item6);
+}
+*/
+#endregion
+
+
+
+
+
+//Задача 5.5.8
+#region
+/*
+private static decimal PowerUp(int N, byte pow)
+{
+    decimal temp = 1;
+    if (pow == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        if (pow == 1)
+        {
+            return N;
         }
         else
         {
-            return x * Factorial(x - 1);
+
+            //for (var i = 1; i < pow + 1; i++)
+            //{
+                //temp = temp * N;
+            //}
+
+            return N*PowerUp(N, --pow);
+
         }
+
     }
-    */
-    #endregion
+
+    return temp;
+
+}
+*/
+#endregion
 
 
 
 
-    //Задача 5.5.3
-    #region
-    /*
-    static void Eho(string phrase, ref int deep)
+
+//Задача 5.5.5
+#region
+/*
+static decimal Factorial(int x)
+{
+
+    if (x == 0)
     {
+        return 1;
+    }
+    else
+    {
+        return x * Factorial(x - 1);
+    }
+}
+*/
+#endregion
 
-        var modif = phrase;
 
-        if (modif.Length > 2)
-        {
-            modif = modif.Remove(0, 2);
 
-        }
 
-        Console.BackgroundColor = (ConsoleColor)deep;
-        Console.WriteLine("..." + modif);
+//Задача 5.5.3
+#region
+/*
+static void Eho(string phrase, ref int deep)
+{
 
-        if (deep > 1)
-        {
-            deep--;
-            Eho(modif, ref deep);
-        }
+    var modif = phrase;
 
+    if (modif.Length > 2)
+    {
+        modif = modif.Remove(0, 2);
 
     }
-    */
 
-    #endregion
+    Console.BackgroundColor = (ConsoleColor)deep;
+    Console.WriteLine("..." + modif);
+
+    if (deep > 1)
+    {
+        deep--;
+        Eho(modif, ref deep);
+    }
+
+
+}
+*/
+
+#endregion
 
 
 
 
 
-    //Задача 5.3.13
-    #region
+//Задача 5.3.13
+#region
 
 
-    /* static void SortArray(in int[] ArrayForSort, out int[] ArrayAsc, out int[] ArrayDesc)
+/* static void SortArray(in int[] ArrayForSort, out int[] ArrayAsc, out int[] ArrayDesc)
+ {
+     ArrayAsc = SortArrayAsc(ArrayForSort);
+     ArrayDesc = SortArrayDesc(ArrayForSort);
+ }
+
+
+ static int[] SortArrayAsc(int[] result)
+ {
+     var a = 0;
+     for (int i = 0; i < result.Length; i++)
      {
-         ArrayAsc = SortArrayAsc(ArrayForSort);
-         ArrayDesc = SortArrayDesc(ArrayForSort);
-     }
-
-
-     static int[] SortArrayAsc(int[] result)
-     {
-         var a = 0;
-         for (int i = 0; i < result.Length; i++)
+         for (int j = i + 1; j < result.Length; j++)
          {
-             for (int j = i + 1; j < result.Length; j++)
+             if (result[j] < result[i])
              {
-                 if (result[j] < result[i])
-                 {
-                     a = result[i];
-                     result[i] = result[j];
-                     result[j] = a;
-                 }
+                 a = result[i];
+                 result[i] = result[j];
+                 result[j] = a;
              }
          }
-         return result;
      }
+     return result;
+ }
 
-     static int[] SortArrayDesc(int[] result)
+ static int[] SortArrayDesc(int[] result)
+ {
+     var a = 0;
+     for (int i = 0; i < result.Length; i++)
      {
-         var a = 0;
-         for (int i = 0; i < result.Length; i++)
+         for (int j = i + 1; j < result.Length; j++)
          {
-             for (int j = i + 1; j < result.Length; j++)
+             if (result[i] < result[j])
              {
-                 if (result[i] < result[j])
-                 {
-                     a = result[j];
-                     result[j] = result[i];
-                     result[i] = a;
-                 }
+                 a = result[j];
+                 result[j] = result[i];
+                 result[i] = a;
              }
          }
-         return result;
      }
+     return result;
+ }
 
 
-    */
+*/
 
 
-    #endregion
+#endregion
 
 
 
-    //Задача 5.2.18
-    #region
-    /* static int[] GetArrayFromConsole(int num = 5)
+//Задача 5.2.18
+#region
+/* static int[] GetArrayFromConsole(int num = 5)
+ {
+
+     var result = new int[num];
+
+     for (int i = 0; i < result.Length; i++)
      {
-
-         var result = new int[num];
-
-         for (int i = 0; i < result.Length; i++)
-         {
-             Console.WriteLine("Введите элемент массива номер {0}", i + 1);
-             result[i] = int.Parse(Console.ReadLine());
-         }
-         return result;
+         Console.WriteLine("Введите элемент массива номер {0}", i + 1);
+         result[i] = int.Parse(Console.ReadLine());
      }
+     return result;
+ }
 
 
-     static int[] SortArray(int[] result)
+ static int[] SortArray(int[] result)
+ {
+     var a = 0;
+     for (int i = 0; i < result.Length; i++)
      {
-         var a = 0;
-         for (int i = 0; i < result.Length; i++)
+         for (int j = i + 1; j < result.Length; j++)
          {
-             for (int j = i + 1; j < result.Length; j++)
+             if (result[j] < result[i])
              {
-                 if (result[j] < result[i])
-                 {
-                     a = result[i];
-                     result[i] = result[j];
-                     result[j] = a;
-                 }
+                 a = result[i];
+                 result[i] = result[j];
+                 result[j] = a;
              }
          }
-         return result;
      }
-     static void ShowArray(int[] array, bool isSort = false)
+     return result;
+ }
+ static void ShowArray(int[] array, bool isSort = false)
+ {
+     var temp = array;
+     if (isSort)
      {
-         var temp = array;
-         if (isSort)
-         {
-             temp = SortArray(array);
-         }
-
-         foreach (var item in temp)
-         {
-             Console.WriteLine(item);
-         }
+         temp = SortArray(array);
      }
-    */
-    #endregion
+
+     foreach (var item in temp)
+     {
+         Console.WriteLine(item);
+     }
+ }
+*/
+#endregion
 
 
 
-    //Задача 5.2.17
-    #region
-    //static int[] GetArrayFromConsole(int num = 5)
-    //{
+//Задача 5.2.17
+#region
+//static int[] GetArrayFromConsole(int num = 5)
+//{
 
-    //    var result = new int[num];
+//    var result = new int[num];
 
-    //    for (int i = 0; i < result.Length; i++)
-    //    {
-    //        Console.WriteLine("Введите элемент массива номер {0}", i + 1);
-    //        result[i] = int.Parse(Console.ReadLine());
-    //    }
-    //    return result;
-    //}
-
-
-    //static int[] SortArray(int[] result)
-    //{
-    //        var a = 0;
-    //        for (int i = 0; i < result.Length; i++)
-    //        {
-    //            for (int j = i + 1; j < result.Length; j++)
-    //            {
-    //                if (result[j] < result[i])
-    //                {
-    //                    a = result[i];
-    //                    result[i] = result[j];
-    //                    result[j] = a;
-    //                }
-    //            }
-    //        }
-    //        return result;
-    //}
-    //static void ShowArray(int[] array, bool isSort = false)
-    //{
-    //    var temp = array;
-    //    if (isSort)
-    //    {
-    //        temp = SortArray(array);
-    //    }   
-
-    //    foreach(var item in temp)
-    //    {
-    //        Console.WriteLine(item);
-    //    }
-    //}
-    #endregion
+//    for (int i = 0; i < result.Length; i++)
+//    {
+//        Console.WriteLine("Введите элемент массива номер {0}", i + 1);
+//        result[i] = int.Parse(Console.ReadLine());
+//    }
+//    return result;
+//}
 
 
+//static int[] SortArray(int[] result)
+//{
+//        var a = 0;
+//        for (int i = 0; i < result.Length; i++)
+//        {
+//            for (int j = i + 1; j < result.Length; j++)
+//            {
+//                if (result[j] < result[i])
+//                {
+//                    a = result[i];
+//                    result[i] = result[j];
+//                    result[j] = a;
+//                }
+//            }
+//        }
+//        return result;
+//}
+//static void ShowArray(int[] array, bool isSort = false)
+//{
+//    var temp = array;
+//    if (isSort)
+//    {
+//        temp = SortArray(array);
+//    }   
 
-
-    //Задача 5.2.14
-    #region
-    //static int[] GetArrayFromConsole(int num = 5)
-    //{
-
-    //    var result = new int[num];
-
-    //    for (int i = 0; i < result.Length; i++)
-    //    {
-    //        Console.WriteLine("Введите элемент массива номер {0}", i + 1);
-    //        result[i] = int.Parse(Console.ReadLine());
-    //    }
-    //    return result;
-    //}
-
-
-    //static int[] SortArray(int[] result)
-    //{
-    //    var a = 0;
-
-    //    for (int i = 0; i < result.Length; i++)
-    //    {
-    //        for (int j = i + 1; j < result.Length; j++)
-    //        {
-    //            if (result[j] < result[i])
-    //            {
-    //                a = result[i];
-    //                result[i] = result[j];
-    //                result[j] = a;
-    //            }
-    //        }
-    //    }
-
-    //    return result;
-    //}
-
-
-    #endregion
+//    foreach(var item in temp)
+//    {
+//        Console.WriteLine(item);
+//    }
+//}
+#endregion
 
 
 
 
+//Задача 5.2.14
+#region
+//static int[] GetArrayFromConsole(int num = 5)
+//{
 
-    //Задача 5.2.8
-    #region
-    //static int[] GetArrayFromConsole()
-    //{
-    //    var result = new int[5];
+//    var result = new int[num];
 
-    //    for (int i = 0; i < result.Length; i++)
-    //        {
-    //            Console.WriteLine("Введите элемент массива номер {0}", i + 1);
-    //            result[i] = int.Parse(Console.ReadLine());
-    //        }
-    //    return result;
-    //}
+//    for (int i = 0; i < result.Length; i++)
+//    {
+//        Console.WriteLine("Введите элемент массива номер {0}", i + 1);
+//        result[i] = int.Parse(Console.ReadLine());
+//    }
+//    return result;
+//}
 
-    //static int[] SortArray(int[] result)
-    //{
-    //    var a = 0;
 
-    //    for (int i = 0; i < result.Length; i++)
-    //    {
-    //        for (int j = i + 1; j < result.Length; j++)
-    //        {
-    //            if (result[j] < result[i])
-    //            {
-    //                a = result[i];
-    //                result[i] = result[j];
-    //                result[j] = a;
-    //            }
-    //        }
-    //    }
+//static int[] SortArray(int[] result)
+//{
+//    var a = 0;
 
-    //    return result;
-    //}
-    #endregion
+//    for (int i = 0; i < result.Length; i++)
+//    {
+//        for (int j = i + 1; j < result.Length; j++)
+//        {
+//            if (result[j] < result[i])
+//            {
+//                a = result[i];
+//                result[i] = result[j];
+//                result[j] = a;
+//            }
+//        }
+//    }
+
+//    return result;
+//}
+
+
+#endregion
 
 
 
 
 
+//Задача 5.2.8
+#region
+//static int[] GetArrayFromConsole()
+//{
+//    var result = new int[5];
 
+//    for (int i = 0; i < result.Length; i++)
+//        {
+//            Console.WriteLine("Введите элемент массива номер {0}", i + 1);
+//            result[i] = int.Parse(Console.ReadLine());
+//        }
+//    return result;
+//}
 
-    //Задача 5.1.6
-    #region
-    //static string ShowColor(string username)
-    //{
-    //Console.WriteLine("Напишите свой любимый цвет на английском маленькими буквами.");
+//static int[] SortArray(int[] result)
+//{
+//    var a = 0;
 
-    //switch (Console.ReadLine())
+//    for (int i = 0; i < result.Length; i++)
+//    {
+//        for (int j = i + 1; j < result.Length; j++)
+//        {
+//            if (result[j] < result[i])
+//            {
+//                a = result[i];
+//                result[i] = result[j];
+//                result[j] = a;
+//            }
+//        }
+//    }
 
-    //{
-
-    //case "red":
-    //Console.BackgroundColor = ConsoleColor.Red;
-    //Console.ForegroundColor = ConsoleColor.Black;
-    //Console.WriteLine("Your color is red!");
-    //break;
-
-    //case "cyan":
-    //Console.BackgroundColor = ConsoleColor.Cyan;
-    //Console.ForegroundColor = ConsoleColor.Black;
-    //Console.WriteLine("Your color is cyan!");
-    //break;
-
-    //default:
-    //Console.BackgroundColor = ConsoleColor.Green;
-    //Console.ForegroundColor = ConsoleColor.Black;
-    //Console.WriteLine("Your color is green!");
-    //break;
-
-    //}
-
-    //return Console.WriteLine();
-
-    //}
-    #endregion
+//    return result;
+//}
+#endregion
 
 
 
 
 
 
-    //Задача 5.1.6
-    #region
-    //static int[] GetArrayFromConsole()
-    //{
-    //var result = new int[5];
 
-    //for (int i = 0; i < result.Length; i++)
-    //{
-    //Console.WriteLine("Введите элемент массива номер {0}", i + 1);
-    //result[i] = int.Parse(Console.ReadLine());
-    //}
+//Задача 5.1.6
+#region
+//static string ShowColor(string username)
+//{
+//Console.WriteLine("Напишите свой любимый цвет на английском маленькими буквами.");
 
-    //var a = 0;
+//switch (Console.ReadLine())
 
-    //for (int i = 0; i < result.Length; i++)
-    //{
-    //for (int j = i+1; j < result.Length; j++)
-    //{
-    //if (result[j] < result[i])
-    //{
-    //a = result[i];
-    //result[i] = result[j];
-    //result[j] = a;
-    //}
-    //}
-    //}
-    //for (int i = 0; i < result.Length; i++)
-    //{
-    //Console.WriteLine(result[i]);
-    //}
+//{
 
-    //return result;
+//case "red":
+//Console.BackgroundColor = ConsoleColor.Red;
+//Console.ForegroundColor = ConsoleColor.Black;
+//Console.WriteLine("Your color is red!");
+//break;
 
-    //}
-    #endregion
+//case "cyan":
+//Console.BackgroundColor = ConsoleColor.Cyan;
+//Console.ForegroundColor = ConsoleColor.Black;
+//Console.WriteLine("Your color is cyan!");
+//break;
 
+//default:
+//Console.BackgroundColor = ConsoleColor.Green;
+//Console.ForegroundColor = ConsoleColor.Black;
+//Console.WriteLine("Your color is green!");
+//break;
 
+//}
 
-    #endregion
+//return Console.WriteLine();
+
+//}
+#endregion
 
 
-    //------------------------------------------------------------------------------------
-    //------------------------------------------------------------------------------------
+
+
+
+
+//Задача 5.1.6
+#region
+//static int[] GetArrayFromConsole()
+//{
+//var result = new int[5];
+
+//for (int i = 0; i < result.Length; i++)
+//{
+//Console.WriteLine("Введите элемент массива номер {0}", i + 1);
+//result[i] = int.Parse(Console.ReadLine());
+//}
+
+//var a = 0;
+
+//for (int i = 0; i < result.Length; i++)
+//{
+//for (int j = i+1; j < result.Length; j++)
+//{
+//if (result[j] < result[i])
+//{
+//a = result[i];
+//result[i] = result[j];
+//result[j] = a;
+//}
+//}
+//}
+//for (int i = 0; i < result.Length; i++)
+//{
+//Console.WriteLine(result[i]);
+//}
+
+//return result;
+
+//}
+#endregion
+
+
+
+#endregion
+
+
+//------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------
 
 namespace DirectoryManager
 {
+    //Задание 9.6.1
+    #region
+    public delegate void Handler(); // объявляем делегата
+    #endregion
+
     class Program
     {
-        static void Main(string[] args)
+
+        //Задание 9.6.1
+        #region
+
+        public static event Handler MyEvent1; // объявляем событие
+
+        class MyException : ApplicationException
         {
+            public void MyExceptiona()
+            {
+                Console.WriteLine("Произошло исключение");
+            }
+            public void SurnameHasDigitException()
+            {
+                Console.WriteLine("Ошибка. В фамилии содержится цифра");
+            }
+
+            public void SurnameHasNullException()
+            {
+                Console.WriteLine("Ошибка. В фамилии нет ниодной буквы");
+            }
+
+            public void SurnameIsAnimalsNicknameException()
+            {
+                Console.WriteLine("Ошибка. Это кличка животного");
+            }
+
+            public void SurnameHasPunctuationException()
+            {
+                Console.WriteLine("Ошибка. В фамилии содержаться знаки препинания");
+            }
+            
+        }
+
+        //проверка на наличие цифры в строке
+        public static bool IsSurnameHasDigit(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c == '0' | c == '1' | c == '2' | c == '3' | c == '4' | c == '5' | c == '6' | c == '7' | c == '8' | c == '9')
+                {
+                    //Console.WriteLine(c);
+                    return true;
+                    break;
+                }
+
+            }
+
+            return false;
+        }
+
+        //проверка на пустую строку
+        public static bool IsSurnameHasNull(string с)
+        {
+            if (с == "")
+               return true;
+
+            return false;
+        }
+        
+        //проверка на кличку животного
+        public static bool IsSurnameIsAnimalsNickname(string c)
+        {
+            if(c == "Шарик" | c == "Тузик" | c == "Мурзик" | c == "Кеша")
+                return true;
+
+            return false;
+        }
+
+
+        //проверка на пустую строку
+        public static bool IsSurnameHasPunctuation(string str)
+        {
+            foreach (char c in str)
+            {
+                if (Char.IsPunctuation(c))
+                {
+                    return true;
+                    break;
+                }
+            }
+            return false;
+        }
+
+        private static int Geek1(string x, string y)
+        {
+            if (x == null)
+            {
+                if (y == null)
+                {
+                    //если х и у указывают на null, то тогда они равны
+                    return 0;
+                }
+
+                else
+                {
+                    // Если x равно null, но y не равно null, тогда y больше.
+                    return -1;
+                }
+            }
+            else
+            {
+                if (y == null)
+                {
+                    return 1;
+                }
+
+                else
+                {
+                    // прямая сортировка        
+                    return x.CompareTo(y);
+                }
+            }
+        }
+
+        private static int Geek2(string x, string y)
+        {
+            if (x == null)
+            {
+                if (y == null)
+                {
+                    //если х и у указывают на null, то тогда они равны
+                    return 0;
+                }
+
+                else
+                {
+                    // Если x равно null, но y не равно null, тогда y больше.
+                    return -1;
+                }
+            }
+            else
+            {
+                if (y == null)
+                {
+                    return 1;
+                }
+
+                else
+                {
+                    // прямая сортировка        
+                    return y.CompareTo(x);
+                }
+            }
+        }
+
+        private static void Display(List<string> list)
+        {
+            foreach (string g in list)
+            {
+                Console.WriteLine(g);
+            }
+        }
+
+        #endregion
+
+
+        public static void Main(string[] args)
+        {
+
+            //Задание 9.6.1
+            #region
+
+            MyEvent1 += SortList1;
+            MyEvent1();
+
+        }
+
+            static void SortList1()
+            {
+
+                // Формируем пользовательский список фамилий
+                Console.WriteLine("Напишите, пожалуйста, 5 любых фамилий.");
+                Console.WriteLine("После ввода каждой фамилии нажимите ENTER.");
+
+                List<string> list1 = new List<string>();
+
+                for (int i = 0; i < 5; i++)
+                {
+
+                    var surname = Console.ReadLine();
+
+                    try
+                    {
+
+                        if (IsSurnameHasDigit(surname) |
+                            IsSurnameHasNull(surname) |
+                            IsSurnameIsAnimalsNickname(surname) |
+                            IsSurnameHasPunctuation(surname))
+                        {
+                            throw new MyException();
+                        }
+
+                        list1.Add(surname);
+                        Console.WriteLine("Отлично. Данная фамилия вошла в список");
+
+                    }
+                    catch (MyException e)
+                    {
+                        if (IsSurnameHasDigit(surname))
+                            e.SurnameHasDigitException();
+
+                        if (IsSurnameHasNull(surname))
+                            e.SurnameHasNullException();
+
+                        if (IsSurnameIsAnimalsNickname(surname))
+                            e.SurnameIsAnimalsNicknameException();
+
+                        if (IsSurnameHasPunctuation(surname))
+                            e.SurnameHasPunctuationException();
+
+                        i--;
+                    }
+
+                }
+
+
+                Console.WriteLine("Исходный список:\n");
+                Display(list1);
+
+                Console.WriteLine("\nЗадайте направление сортировки.");
+                Console.WriteLine("Подсказка. 1 - это сортировка от А до Я");
+                Console.WriteLine("Любая другая цифра - это сортировка от Я до А \n");
+                byte sortDirect = Convert.ToByte(Console.ReadLine());
+
+                if (sortDirect == 1)
+                {
+                    Console.WriteLine("\nОтсортировано от А до Я\n");
+                    list1.Sort(Geek1);
+                }
+                else
+                {
+                    Console.WriteLine("\nОтсортировано от Я до А\n");
+                    list1.Sort(Geek2);
+                }
+
+                // Показываем отсортированный список
+                Display(list1);
+                Console.WriteLine("\n\n\n");
+
+            }
+
+            #endregion
+
+
+
+            //-----------------
+            //Архив
+            #region
+
+
+
+            //Задание 9.2.3
+
+            #region
+            /*
+            try
+            {
+                Console.WriteLine("Отработал блок TRY");
+                throw new RankException();
+            }
+            catch (Exception ex)
+            {
+                if (ex is RankException)
+                {
+                    Console.WriteLine("Отработал блок CAPTH");
+                    Console.WriteLine(ex.GetType());  
+                }
+            }
+            finally
+            {
+                Console.WriteLine("Отработал блок FINALLY");
+            }
+            */
+            #endregion
+
+
+
+            //Задание 9.2.2
+            #region
+            /*
+            try
+            {
+                Console.WriteLine("Отработал блок TRY");
+                throw new ArgumentOutOfRangeException();
+            }
+            catch(Exception ex) 
+            {
+                if (ex is ArgumentOutOfRangeException)
+                {
+                    Console.WriteLine("Отработал блок CAPTH");
+                }
+            }
+            finally
+            {
+                Console.WriteLine("Отработал блок FINALLY");
+            }
+            */
+            #endregion
+
+
+
 
             // Задание 1 юнита 8.6 (для активации кода в начале и конце региона убрать /* и */)
             #region
-            
+            /*
             // задаем путь к каталогу, который надо очистить
             string CleanDirectory = @"C:\folder";
 
@@ -1277,7 +1605,7 @@ namespace DirectoryManager
                 }
             }
             //Начинаем перехватывать ошибки
- 
+
             //DirectoryNotFoundException - директория не найдена
             catch (DirectoryNotFoundException e)
             {
@@ -1289,7 +1617,7 @@ namespace DirectoryManager
             {
                 Console.WriteLine("Отсутствует доступ. Ошибка: " + e.Message);
             }
- 
+
             //Во всех остальных случаях
             catch (Exception e)
             {
@@ -1303,7 +1631,7 @@ namespace DirectoryManager
                 string[] files = Directory.GetFiles(_CleanDirectory);
 
                 // удаление старых файлов в цикле
-                foreach (string file in files) 
+                foreach (string file in files)
                 {
                     FileInfo fi = new FileInfo(file);
 
@@ -1313,12 +1641,12 @@ namespace DirectoryManager
                         fi.Delete();
                     }
                 }
-                
+
                 // получаем все папки из указанного каталога
                 string[] dirs = Directory.GetDirectories(_CleanDirectory);
 
                 // удаление старых папок в цикле
-                foreach (string dir in dirs) 
+                foreach (string dir in dirs)
                 {
                     DirectoryInfo di = new DirectoryInfo(dir);
 
@@ -1332,7 +1660,7 @@ namespace DirectoryManager
                     }
                 }
             }
-            
+            */
             #endregion
 
 
@@ -1341,7 +1669,7 @@ namespace DirectoryManager
 
             // Задание 2 юнита 8.6 (для активации кода в начале и конце региона убрать /* и */)
             #region
-            
+            /*
             string pathToDirectory = @"D:\\Catalog";
             double catalogSize = 0;
 
@@ -1401,7 +1729,7 @@ namespace DirectoryManager
                     Console.WriteLine("Произошла ошибка. Обратитесь к администратору. Ошибка: " + e.Message);
                 }
             }
-            
+            */
             #endregion
 
 
@@ -1410,7 +1738,7 @@ namespace DirectoryManager
 
             // Задание 3 юнита 8.6 (для активации кода в начале и конце региона убрать /* и */)
             #region
-            
+            /*
             // задаем путь к каталогу, который надо очистить
             string CleanDirectory3 = @"C:\folder";
 
@@ -1428,13 +1756,13 @@ namespace DirectoryManager
                     sizeOfFolder3(CleanDirectory3, ref catalogSize3);
                     double oldSize = catalogSize3;
                     Console.WriteLine($"Исходный размер папки: {catalogSize3} байт.");
-                    
+
                     //очищаем папку
                     DeleteFilesAndDirectories3(CleanDirectory3, delMinutes3);
-                    
+
                     //определяем размер папки после очистки
                     sizeOfFolder3(CleanDirectory3, ref catalogSize3);
-                    
+
                     // определяем сколько байт было удалено из папки
                     double deleteSize = oldSize - catalogSize3;
 
@@ -1523,20 +1851,13 @@ namespace DirectoryManager
                 }
 
             }
-            
 
+            */
             #endregion
 
 
             // -----------------------
 
-
-
-
-
-            //-----------------
-            //Архив
-            #region
 
 
 
@@ -2307,11 +2628,11 @@ namespace DirectoryManager
 
 
             #endregion
-
-        }
-
+  
     }
 }
+
+
 
 
 
